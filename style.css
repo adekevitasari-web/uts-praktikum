@@ -1,0 +1,534 @@
+/* ============================================
+    CSS Flexbox Layout + Media Query
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700;800&family=Syne:wght@700;800&display=swap');
+
+/* ── CSS Variables ── */
+:root {
+  --navy:    #0d0d1a;
+  --ocean:   #1a1040;
+  --sky:     #7c3aed;
+  --gold:    #f97316;
+  --cream:   #faf5ff;
+  --white:   #ffffff;
+  --gray:    #6b7280;
+  --light:   #f3f0ff;
+  --shadow:  0 8px 32px rgba(124,58,237,0.12);
+  --radius:  14px;
+  --radius-sm: 8px;
+}
+
+/* ── Reset & Base ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Space Grotesk', sans-serif;
+  background: var(--cream);
+  color: var(--navy);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* ── HEADER ── */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--navy);
+  backdrop-filter: blur(12px);
+  border-bottom: 2px solid var(--gold);
+  padding: 0 2rem;
+}
+
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 70px;
+  display: flex;                /* FLEXBOX */
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: var(--gold);
+  letter-spacing: 1px;
+}
+
+nav ul {
+  display: flex;                /* FLEXBOX */
+  gap: 2rem;
+  list-style: none;
+}
+
+nav a {
+  color: rgba(255,255,255,0.85);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+  transition: color 0.2s;
+}
+
+nav a:hover { color: var(--gold); }
+
+/* ── HERO SECTION ── */
+.hero {
+  min-height: 92vh;
+  background:
+    linear-gradient(160deg, rgba(5,20,10,0.82) 0%, rgba(20,60,30,0.65) 50%, rgba(100,60,10,0.3) 100%),
+    url('https://images.unsplash.com/photo-1501555088652-021faa106b9b?w=1600&q=80') center/cover no-repeat;
+  display: flex;               /* FLEXBOX */
+  align-items: center;
+  padding: 4rem 2rem;
+}
+
+.hero-content {
+  max-width: 660px;
+  margin-left: calc((100% - 1200px) / 2);
+  animation: fadeUp 0.9s ease both;
+}
+
+.hero-content h1 {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(2.4rem, 6vw, 4.5rem);
+  color: var(--white);
+  line-height: 1.15;
+  margin-bottom: 1.2rem;
+}
+
+.hero-content h1 span { color: var(--gold); }
+
+.hero-content p {
+  color: rgba(255,255,255,0.82);
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  max-width: 480px;
+}
+
+.btn-primary {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--navy);
+  padding: 0.85rem 2.2rem;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 16px rgba(232,160,32,0.45);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(232,160,32,0.55);
+}
+
+/* ── SECTION HEADERS ── */
+.section-title {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  text-align: center;
+  color: var(--navy);
+  margin-bottom: 0.5rem;
+}
+
+.section-sub {
+  text-align: center;
+  color: var(--gray);
+  font-size: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+/* ── LAYANAN / CARD SECTION ── */
+.layanan-section {
+  padding: 5rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* SOAL 2: Flexbox — horizontal desktop, vertikal mobile */
+.card-grid {
+  display: flex;               /* FLEXBOX */
+  flex-direction: row;         /* horizontal di desktop */
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+.card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 2rem 1.5rem;
+  flex: 1 1 220px;
+  max-width: 270px;
+  text-align: center;
+  box-shadow: var(--shadow);
+  border-top: 4px solid transparent;
+  border-image: linear-gradient(90deg, #7c3aed, #f97316) 1;
+  transition: transform 0.25s, box-shadow 0.25s;
+  display: flex;               /* FLEXBOX (card internal) */
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(10,22,40,0.16);
+}
+
+.card-icon { font-size: 2.4rem; }
+
+.card h3 {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.1rem;
+  color: var(--navy);
+}
+
+.card p {
+  font-size: 0.88rem;
+  color: var(--gray);
+  flex: 1;
+}
+
+.card-price {
+  display: block;
+  font-weight: 700;
+  color: var(--sky);
+  font-size: 0.95rem;
+}
+
+.btn-card {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 0.55rem 1.4rem;
+  background: var(--navy);
+  color: var(--white);
+  border-radius: 50px;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+.btn-card:hover { background: var(--sky); }
+
+/* ── FORM SECTION (SOAL 3) ── */
+.form-section {
+  background: var(--navy);
+  padding: 5rem 2rem;
+}
+
+.form-section .section-title { color: var(--white); }
+.form-section .section-sub   { color: rgba(255,255,255,0.6); }
+
+.form-wrapper {
+  max-width: 640px;
+  margin: 0 auto;
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 2.5rem 2rem;
+  box-shadow: var(--shadow);
+}
+
+.form-group {
+  display: flex;               /* FLEXBOX */
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-bottom: 1.25rem;
+}
+
+.form-group label {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--navy);
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"],
+.form-group input[type="number"],
+.form-group select {
+  padding: 0.7rem 1rem;
+  border: 1.8px solid #d1d5db;
+  border-radius: var(--radius-sm);
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.95rem;
+  color: var(--navy);
+  background: var(--cream);
+  transition: border-color 0.2s, box-shadow 0.2s;
+  outline: none;
+  width: 100%;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: var(--sky);
+  box-shadow: 0 0 0 3px rgba(45,125,210,0.15);
+  background: var(--white);
+}
+
+.form-group input.invalid { border-color: #ef4444; }
+.form-group input.valid   { border-color: #22c55e; }
+
+/* Checkbox & Radio */
+.checkbox-group,
+.radio-group {
+  display: flex;               /* FLEXBOX */
+  flex-wrap: wrap;
+  gap: 0.7rem;
+}
+
+.check-label,
+.radio-label {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  padding: 0.4rem 0.8rem;
+  border: 1.5px solid #d1d5db;
+  border-radius: 50px;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.check-label:hover,
+.radio-label:hover {
+  border-color: var(--sky);
+  background: rgba(45,125,210,0.06);
+}
+
+input[type="checkbox"],
+input[type="radio"] { accent-color: var(--sky); }
+
+/* Error & Success Messages */
+.error-msg {
+  font-size: 0.8rem;
+  color: #ef4444;
+  min-height: 1rem;
+  display: block;
+}
+
+.success-msg {
+  background: #dcfce7;
+  border: 1.5px solid #22c55e;
+  color: #166534;
+  padding: 1rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.95rem;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.btn-submit {
+  width: 100%;
+  padding: 0.9rem;
+  background: var(--gold);
+  color: var(--navy);
+  border: none;
+  border-radius: 50px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 14px rgba(232,160,32,0.35);
+  margin-top: 0.5rem;
+}
+
+.btn-submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(232,160,32,0.45);
+}
+
+/* ── DAFTAR SECTION (SOAL 5) ── */
+.daftar-section {
+  padding: 5rem 2rem;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.daftar-wrapper {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 2rem;
+  box-shadow: var(--shadow);
+}
+
+.tambah-form {
+  display: flex;               /* FLEXBOX */
+  gap: 0.8rem;
+  margin-bottom: 1.5rem;
+}
+
+.tambah-form input {
+  flex: 1;
+  padding: 0.7rem 1rem;
+  border: 1.8px solid #d1d5db;
+  border-radius: var(--radius-sm);
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.95rem;
+  outline: none;
+  color: var(--navy);
+  background: var(--cream);
+  transition: border-color 0.2s;
+}
+
+.tambah-form input:focus { border-color: var(--sky); }
+
+.btn-tambah {
+  padding: 0.7rem 1.4rem;
+  background: var(--sky);
+  color: var(--white);
+  border: none;
+  border-radius: var(--radius-sm);
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: background 0.2s;
+  white-space: nowrap;
+}
+
+.btn-tambah:hover { background: var(--ocean); }
+
+.item-list {
+  list-style: none;
+  display: flex;               
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.item-list li {
+  display: flex;               
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.8rem 1.1rem;
+  background: var(--cream);
+  border-radius: var(--radius-sm);
+  border-left: 4px solid var(--sky);
+  animation: fadeUp 0.3s ease;
+  font-size: 0.95rem;
+}
+
+.item-list li span { flex: 1; }
+
+.btn-hapus {
+  padding: 0.3rem 0.75rem;
+  background: #fee2e2;
+  color: #dc2626;
+  border: none;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-hapus:hover { background: #fca5a5; }
+
+/* ── FOOTER ── */
+footer {
+  background: linear-gradient(135deg, #1a0533 0%, #0d0d1a 60%, #1a0a00 100%);
+  border-top: 3px solid transparent;
+  border-image: linear-gradient(90deg, #7c3aed, #f97316) 1;
+  color: rgba(255,255,255,0.75);
+  padding: 3rem 2rem 0;
+}
+
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;               /* FLEXBOX */
+  gap: 3rem;
+  flex-wrap: wrap;
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.footer-brand { flex: 2; min-width: 220px; }
+.footer-brand .logo { display: block; margin-bottom: 0.5rem; font-size: 1.3rem; }
+.footer-brand p { font-size: 0.88rem; }
+
+.footer-links, .footer-kontak { flex: 1; min-width: 160px; }
+.footer-links h4, .footer-kontak h4 {
+  color: var(--gold);
+  font-size: 0.95rem;
+  margin-bottom: 0.8rem;
+  font-weight: 700;
+}
+
+.footer-links ul { list-style: none; display: flex; flex-direction: column; gap: 0.4rem; }
+.footer-links a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.88rem; }
+.footer-links a:hover { color: var(--gold); }
+
+.footer-kontak p { font-size: 0.88rem; margin-bottom: 0.3rem; }
+
+.footer-bottom {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 1rem 0;
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.4);
+}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ============================================
+   SOAL 2: MEDIA QUERY — breakpoint 768px
+   Mobile: flex-direction column (vertikal)
+   ============================================ */
+@media (max-width: 768px) {
+
+  /* Header nav */
+  .header-inner {
+    flex-direction: column;
+    height: auto;
+    padding: 1rem 0;
+    gap: 0.6rem;
+  }
+
+  nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.8rem 1.2rem;
+  }
+
+  /* Hero */
+  .hero-content {
+    margin-left: 0;
+    text-align: center;
+  }
+  .hero-content p { margin: 0 auto 2rem; }
+
+  /* Cards — vertikal di mobile */
+  .card-grid {
+    flex-direction: column;    /* VERTIKAL di mobile */
+    align-items: center;
+  }
+
+  .card { max-width: 100%; flex: 1 1 auto; width: 100%; }
+
+  /* Form */
+  .form-wrapper { padding: 1.5rem 1rem; }
+
+  .checkbox-group,
+  .radio-group { flex-direction: column; }
+
+  /* Tambah form */
+  .tambah-form { flex-direction: column; }
+  .btn-tambah { width: 100%; }
+
+  /* Footer */
+  .footer-inner { flex-direction: column; gap: 1.5rem; }
+}
