@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Travel Agency — Jelajahi Dunia Bersama Kami</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- HEADER-->
+  <header>
+    <div class="header-inner">
+      <div class="logo">✈ PitsTravel</div>
+      <nav>
+        <ul>
+          <li><a href="#home">Beranda</a></li>
+          <li><a href="#layanan">Layanan</a></li>
+          <li><a href="#pesan">Pesan Paket</a></li>
+          <li><a href="#daftar">Daftar Item</a></li>
+          <li><a href="#kontak">Kontak</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- HERO / HOME SECTION -->
+    <section id="home" class="hero">
+      <div class="hero-content">
+        <h1>Jelajahi Dunia<br /><span>Bersama PitsTravel</span></h1>
+        <p>Temukan destinasi impian Anda dengan paket wisata terbaik, terpercaya, dan terjangkau bersama kami.</p>
+        <a href="#pesan" class="btn-primary">Pesan Sekarang</a>
+      </div>
+    </section>
+
+    <!-- Kartu Produk/Layanan — Flexbox Layout (min 3 kartu) -->
+    <section id="layanan" class="layanan-section">
+      <h2 class="section-title">Layanan Kami</h2>
+      <p class="section-sub">Pilih paket wisata sesuai kebutuhan dan anggaran Anda</p>
+      <div class="card-grid">
+        <div class="card">
+          <div class="card-icon">🏝️</div>
+          <h3>Paket Pantai</h3>
+          <p>Nikmati keindahan pantai eksotis Nusantara bersama keluarga tercinta.</p>
+          <span class="card-price">Rp 2.500.000 / orang</span>
+          <a href="#pesan" class="btn-card">Pesan</a>
+        </div>
+        <div class="card">
+          <div class="card-icon">🏔️</div>
+          <h3>Paket Pegunungan</h3>
+          <p>Rasakan kesegaran alam pegunungan dengan pemandangan yang memukau.</p>
+          <span class="card-price">Rp 1.800.000 / orang</span>
+          <a href="#pesan" class="btn-card">Pesan</a>
+        </div>
+        <div class="card">
+          <div class="card-icon">🏙️</div>
+          <h3>Paket City Tour</h3>
+          <p>Eksplorasi kota-kota bersejarah dan wisata budaya yang kaya makna.</p>
+          <span class="card-price">Rp 1.200.000 / orang</span>
+          <a href="#pesan" class="btn-card">Pesan</a>
+        </div>
+        <div class="card">
+          <div class="card-icon">✈️</div>
+          <h3>Paket Mancanegara</h3>
+          <p>Wujudkan mimpi keliling dunia dengan paket internasional pilihan.</p>
+          <span class="card-price">Rp 8.500.000 / orang</span>
+          <a href="#pesan" class="btn-card">Pesan</a>
+        </div>
+        <div class="card">
+          <div class="card-icon">🌊</div>
+          <h3>Paket Diving</h3>
+          <p>Selami keindahan bawah laut Indonesia yang memesona dan kaya biota laut.</p>
+          <span class="card-price">Rp 3.200.000 / orang</span>
+          <a href="#pesan" class="btn-card">Pesan</a>
+        </div>
+        <div class="card">
+          <div class="card-icon">🍜</div>
+          <h3>Paket Culinary Trip</h3>
+          <p>Icip-icip kuliner autentik dari berbagai daerah di Nusantara. Healing + kenyang!</p>
+          <span class="card-price">Rp 950.000 / orang</span>
+          <a href="#pesan" class="btn-card">Pesan</a>
+        </div>
+        <div class="card">
+          <div class="card-icon">🌄</div>
+          <h3>Paket Sunrise Hunt</h3>
+          <p>Kejar golden hour di spot-spot terbaik Indonesia. No cap, worth it banget!</p>
+          <span class="card-price">Rp 1.500.000 / orang</span>
+          <a href="#pesan" class="btn-card">Pesan</a>
+        </div>
+        <div class="card">
+          <div class="card-icon">🛖</div>
+          <h3>Paket Glamping</h3>
+          <p>Camping tapi aesthetic — tidur di alam terbuka dengan fasilitas premium.</p>
+          <span class="card-price">Rp 2.100.000 / orang</span>
+          <a href="#pesan" class="btn-card">Pesan</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Form Pemesanan Paket Wisata -->
+    <section id="pesan" class="form-section">
+      <h2 class="section-title">Pesan Paket Wisata</h2>
+      <p class="section-sub">Isi formulir di bawah ini untuk memesan paket perjalanan Anda</p>
+
+      <div class="form-wrapper">
+        <form id="formPesan" novalidate>
+
+          <div class="form-group">
+            <label for="nama">Nama Lengkap *</label>
+            <input type="text" id="nama" name="nama" placeholder="Masukkan nama lengkap Anda" />
+            <span class="error-msg" id="err-nama"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Alamat Email *</label>
+            <input type="email" id="email" name="email" placeholder="contoh@email.com" />
+            <span class="error-msg" id="err-email"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="password">Password Akun *</label>
+            <input type="password" id="password" name="password" placeholder="Min. 6 karakter" />
+            <span class="error-msg" id="err-password"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="telepon">No. Telepon / Harga (Angka) *</label>
+            <input type="number" id="telepon" name="telepon" placeholder="Contoh: 08123456789" />
+            <span class="error-msg" id="err-telepon"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="paket">Pilih Paket Wisata *</label>
+            <select id="paket" name="paket">
+              <option value="">-- Pilih Paket --</option>
+              <option value="pantai">Paket Pantai – Rp 2.500.000</option>
+              <option value="gunung">Paket Pegunungan – Rp 1.800.000</option>
+              <option value="city">Paket City Tour – Rp 1.200.000</option>
+              <option value="internasional">Paket Mancanegara – Rp 8.500.000</option>
+              <option value="diving">Paket Diving – Rp 3.200.000</option>
+              <option value="culinary">Paket Culinary Trip – Rp 950.000</option>
+              <option value="sunrise">Paket Sunrise Hunt – Rp 1.500.000</option>
+              <option value="glamping">Paket Glamping – Rp 2.100.000</option>
+            </select>
+            <span class="error-msg" id="err-paket"></span>
+          </div>
+
+          <div class="form-group">
+            <label>Fasilitas Tambahan</label>
+            <div class="checkbox-group">
+              <label class="check-label">
+                <input type="checkbox" name="fasilitas" value="hotel" /> Hotel Bintang 5
+              </label>
+              <label class="check-label">
+                <input type="checkbox" name="fasilitas" value="transport" /> Transport Antar-Jemput
+              </label>
+              <label class="check-label">
+                <input type="checkbox" name="fasilitas" value="guide" /> Tour Guide Profesional
+              </label>
+              <label class="check-label">
+                <input type="checkbox" name="fasilitas" value="asuransi" /> Asuransi Perjalanan
+              </label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Jenis Wisatawan *</label>
+            <div class="radio-group">
+              <label class="radio-label">
+                <input type="radio" name="jenis" value="individu" /> Individu
+              </label>
+              <label class="radio-label">
+                <input type="radio" name="jenis" value="keluarga" /> Keluarga
+              </label>
+              <label class="radio-label">
+                <input type="radio" name="jenis" value="grup" /> Grup / Rombongan
+              </label>
+            </div>
+            <span class="error-msg" id="err-jenis"></span>
+          </div>
+
+          <button type="submit" class="btn-submit">Kirim Pemesanan ✈</button>
+          <div id="form-success" class="success-msg" style="display:none;">
+            ✅ Pemesanan berhasil dikirim! Tim kami akan menghubungi Anda segera.
+          </div>
+
+        </form>
+      </div>
+    </section>
+
+    <!-- Daftar Item dengan JavaScript DOM -->
+    <section id="daftar" class="daftar-section">
+      <h2 class="section-title">Daftar Destinasi Populer</h2>
+      <p class="section-sub">Kelola daftar destinasi wisata favorit Anda</p>
+
+      <div class="daftar-wrapper">
+        <div class="tambah-form">
+          <input type="text" id="inputItem" placeholder="Tambah destinasi baru..." />
+          <button onclick="tambahItem()" class="btn-tambah">+ Tambah</button>
+        </div>
+        <ul id="listItem" class="item-list"></ul>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="logo">✈ PitsTravel</span>
+        <p>Menjadikan setiap perjalanan sebagai kenangan tak terlupakan.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Navigasi</h4>
+        <ul>
+          <li><a href="#home">Beranda</a></li>
+          <li><a href="#layanan">Layanan</a></li>
+          <li><a href="#pesan">Pesan Paket</a></li>
+          <li><a href="#daftar">Daftar Item</a></li>
+        </ul>
+      </div>
+      <div class="footer-kontak" id="kontak">
+        <h4>Kontak</h4>
+        <p>📞 +62 838-4328-7536</p>
+        <p>📧 <a href="mailto:adekevitasari@gmail.com">adekevitasari@gmail.com</a></p>
+        <p>📍 Medan, Sumatera Utara</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 PitsTravel. All rights reserved</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
